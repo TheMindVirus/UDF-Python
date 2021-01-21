@@ -3,6 +3,10 @@ CPython running as an interpreter for a UMDFv2 Windows Driver!
 
 Continuation of KMDF-X: Windows Diagnostic Drivers for Raspberry Pi 4 in Low Peripheral Mode
 
+## The Concept
+Using a well-known cross-platform Interpreter as a Driver may save having to recompile complex driver code for every peripheral and architecture.
+It may also be used to address security concerns directly and help prototype better, more sustainable solutions for interfacing with hardware.
+
 ## Please use with caution, this repository is indended for educational purposes and testing. ##
 
 This project may be used as a template to aid the prototyping of production drivers for ARM64 platforms similar to the Raspberry Pi 4.
