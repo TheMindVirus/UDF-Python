@@ -1,0 +1,11 @@
+﻿  Building 'UDF' with toolset 'WindowsUserModeDriver10.0' and the 'Universal' target platform.
+  Stamping Debug\UDF.inf
+  Stamping [Version] section with DriverVer=01/14/2021,1.7.19.268
+  main.cpp
+     Creating library C:\Users\cotaa\Documents\Visual Studio 2019\Projects\UDF\Debug\UDF.lib and object C:\Users\cotaa\Documents\Visual Studio 2019\Projects\UDF\Debug\UDF.exp
+main.obj : error LNK2019: unresolved external symbol __imp__PyRun_SimpleStringFlags@8 referenced in function _DriverDeviceAdd@8
+main.obj : error LNK2019: unresolved external symbol __imp__Py_Initialize@0 referenced in function _DriverDeviceAdd@8
+main.obj : error LNK2019: unresolved external symbol __imp__Py_Finalize@0 referenced in function _DriverUnload@4
+main.obj : error LNK2019: unresolved external symbol __imp__Py_SetProgramName@4 referenced in function _DriverDeviceAdd@8
+C:\Python38\libs\python38.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+LINK : error LNK1218: warning treated as error; no output file generated

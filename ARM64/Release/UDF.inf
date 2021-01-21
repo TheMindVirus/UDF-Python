@@ -1,0 +1,75 @@
+; ========================================================================
+;    INF file for installing the UMDF Driver
+;    Using Devcon: Type "devcon install UDF.inf root\UDF" to install
+; ========================================================================
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171}
+Provider=%Provider%
+DriverVer = 01/21/2021,23.8.1.267
+CatalogFile=wudf.cat
+PnpLockdown=1
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg     
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[Manufacturer]
+%Model%=Standard,NTARM64
+
+[Standard.NTARM64]
+%DeviceDesc%=UDF_Device,root\UDF
+
+; ================= Copy section ================= 
+
+[SourceDisksNames]
+1="UMDriverCopy",,,
+
+[DestinationDirs]
+DefaultDestDir=12
+UMDriverCopy=12,"UMDF\Python"
+
+[SourceDisksFiles]
+"UDF.dll"=1
+
+[UDF_Device.NT]
+CopyFiles=UMDriverCopy
+
+[UMDriverCopy]
+"UDF.dll",,,0x00004000
+
+; ================= Service section =================
+
+[UDF_Device.NT.Services]
+AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[WUDFRD_ServiceInstall]
+DisplayName=%DeviceDesc%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\WUDFRd.sys
+
+; ================= WDF section =================
+
+[UDF_Device.NT.Wdf]
+UmdfService=UDF,UDF_Install
+UmdfServiceOrder=UDF
+UmdfDirectHardwareAccess=AllowDirectHardwareAccess
+
+[UDF_Install]
+UmdfLibraryVersion=2.15.0
+ServiceBinary=%12%\UMDF\Python\UDF.dll
+
+[Strings]
+Provider="Alastair Cota"
+Model="Universal Driver Framework"
+DeviceDesc="Python C++ Interpreter Driver"
+ClassName="Sample"

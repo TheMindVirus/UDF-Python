@@ -1,0 +1,2 @@
+C:\Users\cotaa\Documents\Visual Studio 2019\Projects\UDF\ARM64\Debug\UDF.dll
+C:\Users\cotaa\Documents\Visual Studio 2019\Projects\UDF\ARM64\Debug\UDF.pdb
